@@ -20,4 +20,6 @@ const user = {
     },
     "createdAt": 0,
     "lastModified": 0,
+    "status": "active",
+    "favourites": [],
 }
