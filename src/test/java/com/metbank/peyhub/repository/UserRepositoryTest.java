@@ -9,7 +9,6 @@ import org.springframework.data.mongodb.core.query.Query;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 @SpringBootTest
 class UserRepositoryTest {

@@ -1,5 +1,12 @@
 # **PeyHub Backend**
 
+### **Architecture**
+* Communication process
+    - > Controller 
+    - > Services 
+    - > Repository with Document 
+    - > Database
+
 ### **Stack**
 * Java
 * Docker
