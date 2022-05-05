@@ -9,6 +9,7 @@ import org.springframework.data.mongodb.core.query.Query;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @SpringBootTest
 class UserRepositoryTest {
@@ -54,6 +55,9 @@ class UserRepositoryTest {
                 .password("myCompl3x123")
                 .build();
 
+        // check if email exists using mongo repository custom method
+        getUserByEmail(email);
+
         Query query = new Query();
 
         // check if email exists using mongo template
@@ -74,8 +78,17 @@ class UserRepositoryTest {
         }
     }
 
-    @Test
-    public void getUserByEmail() {
-
+    // check if email exists using mongo repository custom method
+    public void getUserByEmail(Email email) throws IllegalAccessException {
+        userRepository
+                .findUserByEmail_EmailId(email.getEmailId())
+                .ifPresentOrElse(
+                    user -> {
+                        System.out.println(user);
+                    },
+                    () -> {
+                        System.out.println("Not found");
+                    }
+        );
     }
 }
