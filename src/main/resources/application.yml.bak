@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: dockermongo
+    active: cloudmongo
 
 # using profiles
 ---
