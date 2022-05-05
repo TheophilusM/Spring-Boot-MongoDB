@@ -1,4 +1,4 @@
-package com.metbank.peyhub.entity;
+package com.metbank.peyhub.document;
 
 public enum Status {
     active, inactive

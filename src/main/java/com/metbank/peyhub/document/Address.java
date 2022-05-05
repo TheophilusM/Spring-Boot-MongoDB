@@ -1,4 +1,4 @@
-package com.metbank.peyhub.entity;
+package com.metbank.peyhub.document;
 
 import lombok.Data;
 
