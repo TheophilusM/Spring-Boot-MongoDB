@@ -1,4 +1,4 @@
-# **PeyHub Backend**
+# **MongoDB, Spring Boot & Docker**
 
 ### **Architecture**
 * Communication process
