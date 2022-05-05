@@ -19,7 +19,7 @@
     - Mongodb
     - OAuth2
     - Spring Security
-    - Soring Dev Tools
+    - Spring Dev Tools
     - JUnit
     - Mockito
     - Spring Boot mail
@@ -38,18 +38,6 @@
 	- Reset password
 	- Forgot password
 * Shopping
-	- Get all products
-	- Get a product
-	- Get a shop
-	- Get all in cart list
-	- Create a product
-	- Edit a product
-	- Delete a product
-	- Manage shop
-		- Subscription or commission
-	- Order product
-	- Manage order
-	- Verify user registration
 		
 
 ### **JWT**
