@@ -1,0 +1,36 @@
+spring:
+  profiles:
+    active: cloudmongo
+
+# using profiles
+---
+
+spring:
+  data:
+    mongodb:
+      authentication-database: admin
+      username: metbankdevs
+      password: m3tbnk123p3hub
+      database: myFirstDatabase
+      port: 27017
+      host: mongodb+srv://metbankdevs:m3tbnk123p3hub@cluster0.fs7om.mongodb.net:27017/myFirstDatabase
+  config:
+    activate:
+      on-profile: cloudmongo
+
+---
+
+spring:
+  data:
+    mongodb:
+      authentication-database: admin
+      username: rootuser
+      password: rootpass
+      database: peyhub
+      port: 27017
+      host: localhost
+  config:
+    activate:
+      on-profile: dockermongo
+
+---

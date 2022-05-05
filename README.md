@@ -1,10 +1,11 @@
 # **PeyHub Backend**
 
-## **Stack**
+### **Stack**
 * Java
 * Docker
 * Spring Boot
 * MongoDB
+* Mongo Express
 * Dependencies
     - Lombok
     - Spring Web
@@ -16,7 +17,10 @@
     - Mockito
     - Spring Boot mail
 
-## **Services**
+### **Docker**
+* start containers
+    - `docker-compose up d`
+### **Services**
 * Auth
 	- Registration
 	- Login
@@ -41,7 +45,7 @@
 	- Verify user registration
 		
 
-## **JWT**
+### **JWT**
 * JSON Web Token
 * Small and secure
 * Allow applications t communicate
