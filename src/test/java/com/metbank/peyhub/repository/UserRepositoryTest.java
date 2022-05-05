@@ -3,16 +3,20 @@ package com.metbank.peyhub.repository;
 import com.metbank.peyhub.document.*;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 @SpringBootTest
 class UserRepositoryTest {
     UserRepository userRepository;
+    MongoTemplate mongoTemplate;
 
     @Test
-    public void registerUser() {
+    public void registerUser() throws IllegalAccessException {
         Email email = Email
                 .builder()
                 .emailId("theotakumug@gmail.com")
@@ -43,14 +47,35 @@ class UserRepositoryTest {
                 .phone(phone)
                 .gender(Gender.Male)
                 .address(address)
-                .createdAt(LocalDateTime.now())
-                .lastModified(LocalDateTime.now())
+                .createdAt((new Date()).getTime())
+                .lastModified((new Date()).getTime())
                 .status(Status.active)
                 .favourites(List.of("Food", "Gadgets"))
+                .password("myCompl3x123")
                 .build();
 
-        userRepository.save(user);
+        Query query = new Query();
 
-        System.out.println("User registration successful");
+        // check if email exists using mongo template
+        query.addCriteria(Criteria.where("email").is(email.getEmailId()));
+        List<User> users = mongoTemplate.find(query, User.class);
+
+        // throw user email exists error
+        if (users.size() > 1) {
+            throw new IllegalAccessException("User with email already exists: " + email.getEmailId());
+        }
+
+        // save user
+        if (users.isEmpty()) {
+            userRepository.save(user);
+            System.out.println("User registration successful");
+        } else {
+            System.out.println("User email already exists");
+        }
+    }
+
+    @Test
+    public void getUserByEmail() {
+
     }
 }

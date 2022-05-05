@@ -14,6 +14,7 @@ spring:
       database: myFirstDatabase
       port: 27017
       host: mongodb+srv://metbankdevs:m3tbnk123p3hub@cluster0.fs7om.mongodb.net:27017/myFirstDatabase
+      auto-index-creation: true
   config:
     activate:
       on-profile: cloudmongo
@@ -29,6 +30,7 @@ spring:
       database: peyhub
       port: 27017
       host: localhost
+      auto-index-creation: true
   config:
     activate:
       on-profile: dockermongo

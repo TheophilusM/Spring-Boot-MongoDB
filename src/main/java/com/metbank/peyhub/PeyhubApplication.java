@@ -47,12 +47,11 @@ public class PeyhubApplication {
 					phone,
 					Gender.Male,
 					address,
-					LocalDateTime.now(),
-					LocalDateTime.now(),
+					(new Date()).getTime(),
+					(new Date()).getTime(),
 					Status.active,
-					List.of("Food", "Gadgets")
-
-
+					List.of("Food", "Gadgets", "Stationary),
+					"myCompl3x123"
 			);
 
 			userRepository.save(user);

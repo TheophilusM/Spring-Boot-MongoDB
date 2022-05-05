@@ -3,10 +3,9 @@ package com.metbank.peyhub.document;
 import lombok.Builder;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.time.LocalDateTime;
-import java.time.ZonedDateTime;
 import java.util.List;
 
 @Data
@@ -18,14 +17,16 @@ public class User {
     private String id;
     private String firstName;
     private String lastName;
+    @Indexed(unique = true)
     private Email email;
     private Phone phone;
     private Gender gender;
     private Address address;
-    private LocalDateTime createdAt;
-    private LocalDateTime lastModified;
+    private long createdAt;
+    private long lastModified;
     private Status status;
     private List<String> favourites;
+    private String password;
 
     public User(String firstName,
                 String lastName,
@@ -33,10 +34,11 @@ public class User {
                 Phone phone,
                 Gender gender,
                 Address address,
-                LocalDateTime createdAt,
-                LocalDateTime lastModified,
+                long createdAt,
+                long lastModified,
                 Status status,
-                List<String> favourites) {
+                List<String> favourites,
+                String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -47,5 +49,6 @@ public class User {
         this.lastModified = lastModified;
         this.status = status;
         this.favourites = favourites;
+        this.password = password;
     }
 }
