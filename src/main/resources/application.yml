@@ -8,13 +8,12 @@ spring:
 spring:
   data:
     mongodb:
-      authentication-database: admin
-      username: username
-      password: password
-      database: dbName
-      port: 27017
-      host: mongodb+srv://username:password@cluster0.fs7om.mongodb.net:port/dbName
-      auto-index-creation: true
+      host: [host]
+      port: [port]
+      authentication-database: [authentication_database]
+      username: [username]
+      password: [password]
+      database: [db_name]
   config:
     activate:
       on-profile: cloudmongo
